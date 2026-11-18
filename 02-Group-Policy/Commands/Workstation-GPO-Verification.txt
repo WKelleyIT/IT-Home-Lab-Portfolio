@@ -1,0 +1,61 @@
+Microsoft Windows [Version 10.0.26300.9457]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\arivera>whoami
+corp\arivera
+
+C:\Users\arivera>gpresult /scope user /r
+
+Microsoft (R) Windows (R) Operating System Group Policy Result tool v2.0
+© Microsoft Corporation. All rights reserved.
+
+Created on ‎11/‎2/‎2026 at 9:23:58 PM
+
+
+RSOP data for CORP\arivera on LAB-PC1 : Logging Mode
+-----------------------------------------------------
+
+OS Configuration:            Member Workstation
+OS Version:                  10.0.26300
+Site Name:                   N/A
+Roaming Profile:             N/A
+Local Profile:               C:\Users\arivera
+Connected over a slow link?: No
+
+
+USER SETTINGS
+--------------
+    CN=Alex Rivera,OU=IT,OU=Employees,OU=LabCompany,DC=corp,DC=example,DC=test
+    Last time Group Policy was applied: 11/2/2026 at 8:38:36 PM
+    Group Policy was applied from:      LAB-DC1.corp.example.test
+    Group Policy slow link threshold:   500 kbps
+    Domain Name:                        CORP
+    Domain Type:                        Windows 2008 or later
+
+    Applied Group Policy Objects
+    -----------------------------
+        LAB - IT User Restrictions
+
+    The following GPOs were not applied because they were filtered out
+    -------------------------------------------------------------------
+        LAB - IT Security Filter Test
+            Filtering:  Not Applied (Unknown Reason)
+
+        Local Group Policy
+            Filtering:  Not Applied (Empty)
+
+    The user is a part of the following security groups
+    ---------------------------------------------------
+        Domain Users
+        Everyone
+        BUILTIN\Users
+        NT AUTHORITY\INTERACTIVE
+        CONSOLE LOGON
+        NT AUTHORITY\Authenticated Users
+        This Organization
+        LOCAL
+        GG_IT_Support
+        Authentication authority asserted identity
+        Medium Mandatory Level
+
+C:\Users\arivera>

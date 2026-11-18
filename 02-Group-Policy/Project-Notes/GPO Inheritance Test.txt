@@ -1,0 +1,1 @@
+Blocking inheritance prevented user Howard from receiving the parent GPO, while enforcement overrode that block.

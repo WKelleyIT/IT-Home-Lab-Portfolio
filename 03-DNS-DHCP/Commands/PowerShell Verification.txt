@@ -1,0 +1,23 @@
+PS C:\WINDOWS\system32> resolve-dnsname lab-client.corp.example.test -type a -server 10.20.30.10
+
+Name                                           Type   TTL   Section    IPAddress
+----                                           ----   ---   -------    ---------
+lab-client.corp.example.test                   A      3600  Answer     10.20.30.20
+
+
+PS C:\WINDOWS\system32> resolve-dnsname support-client.corp.example.test -type cname -server 10.20.30.10
+
+Name                           Type   TTL   Section    NameHost
+----                           ----   ---   -------    --------
+support-client.corp.example.te CNAME  3600  Answer     lab-client.corp.example.test
+st
+
+
+PS C:\WINDOWS\system32> resolve-dnsname 10.20.30.20 -type ptr -server 10.20.30.10
+
+Name                           Type   TTL   Section    NameHost
+----                           ----   ---   -------    --------
+20.30.20.10.in-addr.arpa       PTR    3600  Answer     LAB-PC1.corp.example.test
+
+
+PS C:\WINDOWS\system32>

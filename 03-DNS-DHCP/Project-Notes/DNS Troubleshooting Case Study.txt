@@ -1,0 +1,57 @@
+# DNS Troubleshooting — Stale DNS Records After DHCP Migration
+
+**Project:** Windows Server 2025 — DNS and DHCP Administration  
+**Environment:** VMware Workstation Pro, Windows Server 2025, Windows 11 Enterprise  
+**Domain:** corp.example.test  
+**Domain Controller/DNS Server:** LAB-DC1 (10.20.30.10)  
+**Client Workstation:** LAB-PC1 (10.20.30.100)
+
+## Problem Description
+
+Following the migration of LAB-PC1 from static IP addressing to DHCP, DNS contained outdated records referencing the workstation's previous IP address, 10.20.30.20.
+
+The workstation had successfully obtained its new address, 10.20.30.100, through a DHCP reservation. However, stale DNS entries remained, resulting in inconsistent hostname-to-IP address mappings.
+
+## Investigation and Root Cause
+
+Independently investigated the DNS configuration and identified records referencing LAB-PC1's former static IP address.
+
+The issue resulted from obsolete DNS records remaining after the workstation's IP configuration changed. These records coexisted with updated entries, creating duplicate or conflicting hostname mappings.
+
+## Resolution
+
+Removed outdated DNS records referencing 10.20.30.20 while preserving the current DNS configuration.
+
+Verified that the workstation's hostname and associated DNS aliases resolved to its current DHCP-assigned IP address.
+
+## Verification
+
+Used PowerShell's `Resolve-DnsName` command to query the Windows Server DNS service directly.
+
+Successfully verified:
+
+| DNS hostname | Resolved IPv4 address |
+|---|---|
+| LAB-PC1.corp.example.test | 10.20.30.100 |
+| lab-client.corp.example.test | 10.20.30.100 |
+| support-client.corp.example.test | 10.20.30.100 |
+
+All three lookups returned the expected address.
+
+## Outcome
+
+Successfully diagnosed and corrected stale DNS records following a workstation's migration from static IP addressing to DHCP.
+
+Restored consistent forward name resolution without requiring changes to the existing DHCP reservation or address scope.
+
+## Skills Demonstrated
+
+- Windows Server DNS administration
+- DNS record inspection and management
+- DHCP and DNS integration
+- PowerShell-based DNS verification
+- Independent root-cause analysis
+- Troubleshooting hostname resolution failures
+- Post-remediation validation
+
+**Assessment Result:** Passed — Issue independently identified, corrected, and verified.
